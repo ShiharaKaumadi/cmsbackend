@@ -3,6 +3,7 @@ package lk.greenshadow.greens.util;
 import lk.greenshadow.greens.dto.impl.*;
 import lk.greenshadow.greens.entity.*;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -55,6 +56,28 @@ public class Mappings {
         return modelMapper.map(vehicleEntity,VehicleDTO.class);
     }
 
+    /*Return Lists*/
+    public List<CropDTO> asCropDTOList(List<CropEntity> cropEntities) {
+        return modelMapper.map(cropEntities, new TypeToken<List<CropDTO>>() {}.getType());
+    }
+    public List<EquipmentDTO> asEquipmentDTOList(List<CropEntity> cropEntities) {
+        return modelMapper.map(cropEntities, new TypeToken<List<CropDTO>>() {}.getType());
+    }
+    public List<FieldDTO> asFieldDTOList(List<FieldEntity> fieldEntities){
+        return modelMapper.map(fieldEntities,new TypeToken<List<FieldDTO>>(){}.getType());
+    }
+    public List <LogsDTO> asLogDTOList(List<LogEntity> logEntities){
+        return modelMapper.map(logEntities,new TypeToken<List<LogsDTO>>(){}.getType());
+    }
+    public List<StaffDTO> asStaffDTOList(List<StaffEntity> staffEntities){
+        return modelMapper.map(staffEntities,new TypeToken<List<StaffDTO>>(){}.getType());
+    }
+    public List<UserDTO> asUserDTOList(List<UserEntity> userEntities){
+        return modelMapper.map(userEntities,new TypeToken<List<UserDTO>>(){}.getType());
+    }
+    public List<VehicleDTO> asVehicleDTOList(List<VehicleEntity> vehicleEntities){
+        return modelMapper.map(vehicleEntities,new TypeToken<List<VehicleDTO>>(){}.getType());
+    }
 
 
 }
