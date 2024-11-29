@@ -1,5 +1,6 @@
 package lk.greenshadow.greens.service.impl;
 
+import jakarta.transaction.Transactional;
 import lk.greenshadow.greens.dto.impl.CropDTO;
 import lk.greenshadow.greens.entity.CropEntity;
 import lk.greenshadow.greens.entity.FieldEntity;
@@ -9,10 +10,12 @@ import lk.greenshadow.greens.service.CropService;
 import lk.greenshadow.greens.util.AppUtil;
 import lk.greenshadow.greens.util.Mappings;
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
+@Transactional
 public class CropServiceImpl implements CropService {
     private CropRepo cropRepo;
     private FieldRepo fieldRepo;
@@ -21,8 +24,8 @@ public class CropServiceImpl implements CropService {
     @Override
     public CropDTO save(CropDTO dto) {
         dto.setId(AppUtil.generateCropId());
-        return cropMapping.toCropDTO(cropRepo.save(cropMapping.toCropEntity(dto)))
-        return null;
+        return cropMapping.toCropDTO(cropRepo.save(cropMapping.toCropEntity(dto)));
+
     }
 
     @Override
