@@ -13,7 +13,7 @@ public class Mappings {
     @Autowired
     private ModelMapper modelMapper;
     public CropEntity toCropEntity(CropDTO cropDTO){
-        return modelMapper.map(cropDTO, CropEntity.class)
+        return modelMapper.map(cropDTO, CropEntity.class);
     }
     public CropDTO toCropDTO(CropEntity cropEntity){
         return modelMapper.map(cropEntity,CropDTO.class);
